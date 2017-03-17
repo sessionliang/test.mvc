@@ -1,0 +1,5 @@
+D:\JL\Code\Project\HRCode.V4\HRCode.Model\bin\Debug\HRCode.Model.dll
+D:\JL\Code\Project\HRCode.V4\HRCode.Model\bin\Debug\HRCode.Model.pdb
+D:\JL\Code\Project\HRCode.V4\HRCode.Model\obj\Debug\HRCode.Model.dll
+D:\JL\Code\Project\HRCode.V4\HRCode.Model\obj\Debug\HRCode.Model.pdb
+D:\JL\Code\Project\HRCode.V4\HRCode.Model\obj\Debug\HRCode.Model.csprojResolveAssemblyReference.cache

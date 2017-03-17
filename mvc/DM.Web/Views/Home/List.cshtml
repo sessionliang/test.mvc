@@ -1,0 +1,60 @@
+﻿@model HRCode.Model.Test
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+<div id="toolbar">
+    <button id="create" class="btn btn-primary">
+        <i class="glyphicon glyphicon-plus"></i> 新增
+    </button>
+    <button id="remove" class="btn btn-danger" disabled>
+        <i class="glyphicon glyphicon-remove"></i> 删除
+    </button>
+</div>
+
+@Html.Table("table", Url.Action("ListResult"),
+    new System.Collections.ArrayList {
+        new { dataCheckbox = "true" },
+        Html.FieldFor(x=>x.Id),
+        Html.FieldFor(x=>x.Name),
+        Html.FieldFor(x=>x.Price,new { dataAlign="center"}),
+        new { dataFormatter="operateFormatter", dataName="操作", dataAlign="center"}
+    }, null)
+<script>
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="edit" href="javascript:;" onClick="processEditOrCreate(' + row.id + ')" title="Edit">',
+            '<i class="glyphicon glyphicon-edit"></i>',
+            '</a>  ',
+            '<a class="remove" href="javascript:;" onClick="processDelete(' + row.id + ')" title="Remove">',
+            '<i class="glyphicon glyphicon-remove"></i>',
+            '</a>'
+        ].join('');
+    }
+    function processEditOrCreate(id) {
+        layer.open({
+            type: 2,
+            title: id ? "修改页面" : "新增页面",
+            maxmin: true,
+            shadeClose: true, //点击遮罩关闭层
+            area: ['800px', '520px'],
+            content: '/Home/Edit?id=' + id
+        });
+    }
+    function processDelete(id) {
+        layer.msg("确定要删除吗？", {
+            time: 0,
+            btn: ['确定', '取消'],
+            yes: function (index) {
+                layer.msg("删除成功", {
+                    icon: 6,
+                    time: 1000
+                });
+                //刷新列表
+                $("#table").bootstrapTable("refresh");
+            }
+        });
+    }
+</script>

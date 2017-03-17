@@ -1,0 +1,326 @@
+﻿body {
+    padding-top: 50px;
+    font-family: 'Microsoft YaHei';
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #777;
+}
+
+/* 顶部导航 */
+.navbar-fixed-top {
+    background-color: #dd4b39;
+    color: #fff;
+}
+
+    .navbar-fixed-top .dropdown > a,
+    .navbar-toggle,
+    .dropdown-menu a {
+        color: #fff !important;
+        border-color: #dd4b39 !important;
+    }
+
+        .navbar-fixed-top .dropdown > a:hover,
+        .navbar-fixed-top .dropdown > a:focus,
+        .navbar-fixed-top .dropdown > a:active,
+        .navbar-toggle:hover,
+        .navbar-toggle:focus,
+        .navbar-toggle:active,
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus,
+        .dropdown-menu a:active {
+            background: rgba(0,0,0,0.1) !important;
+            color: #f6f6f6 !important;
+        }
+
+@media(min-width:768px) {
+    .dropdown-menu a {
+        color: #777 !important;
+        border-color: #dd4b39 !important;
+    }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus,
+        .dropdown-menu a:active {
+            color: #777 !important;
+        }
+}
+
+.navbar-fixed-top {
+    border: 0;
+}
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 5px 5px 5px 10px;
+        margin: 0;
+    }
+
+        .navbar-fixed-top .navbar-brand img {
+            margin-top: -5px;
+        }
+
+    .navbar-fixed-top .navbar-right {
+        padding-right: 10px;
+    }
+
+    .navbar-fixed-top .label {
+        position: absolute;
+        top: 4px;
+        right: -4px;
+        padding: 1px;
+        font-family: serif;
+        padding: 1px;
+        width: 22px;
+    }
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    background: rgba(0,0,0,0.1) !important;
+    color: #f6f6f6 !important;
+}
+
+/* 左侧菜单头部 */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+        -ms-transform: rotate(0deg); /* IE 9 */
+        -webkit-transform: rotate(0deg); /* Safari and Chrome */
+        -o-transform: rotate(0deg); /* Opera */
+        -moz-transform: rotate(0deg); /* Firefox */
+    }
+
+    to {
+        transform: rotate(360deg);
+        -ms-transform: rotate(360deg); /* IE 9 */
+        -webkit-transform: rotate(360deg); /* Safari and Chrome */
+        -o-transform: rotate(360deg); /* Opera */
+        -moz-transform: rotate(360deg); /* Firefox */
+    }
+}
+
+.menu-header {
+    height: 100%;
+    position: fixed;
+    z-index: 2000;
+}
+
+    .menu-header span {
+        width: 4px;
+        height: 60px;
+        position: fixed;
+        top: 61px;
+        background-color: #dd4b39;
+        margin-left: -1px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+        .menu-header span.show:hover {
+            border-width: 30px 0 30px 30px;
+            border-color: transparent transparent transparent #dd4b39; /*透明 透明 透明 灰*/
+        }
+
+        .menu-header span:hover {
+            cursor: pointer;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            width: 0;
+            height: 0;
+            border-width: 30px 30px 30px 0;
+            border-style: solid;
+            background-color: transparent;
+            border-color: transparent #dd4b39 transparent transparent; /*透明 透明 透明 灰*/
+        }
+
+@media(min-width:768px) {
+    .menu-header {
+        height: 100%;
+        position: fixed;
+        z-index: 2000;
+    }
+
+        .menu-header span {
+            width: 4px;
+            height: 60px;
+            position: absolute;
+            top: 46%;
+            background-color: #dd4b39;
+            margin-left: -1px;
+            /*border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;*/
+        }
+
+            .menu-header span.show:hover {
+                left: -25px;
+                border-width: 30px 30px 30px 0px;
+                border-color: transparent #dd4b39 transparent transparent; /*透明 透明 透明 灰*/
+            }
+
+            .menu-header span:hover {
+                cursor: pointer;
+                left: 0px;
+                /*动画效果*/
+                /*animation-name: spin;
+                animation-duration: 500ms; 
+                animation-iteration-count: 1;
+                animation-timing-function: linear;*/
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                width: 0;
+                height: 0;
+                border-width: 30px 0 30px 30px;
+                border-style: solid;
+                background-color: transparent;
+                border-color: transparent transparent transparent #dd4b39; /*透明 透明 透明 灰*/
+            }
+}
+
+
+/* 左侧导航 */
+.sidebar {
+    display: none;
+    padding-top: 0;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px; /* body.padding-top + 1 */
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 0 20px 20px 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: #f2f2f2;
+        border-right: 1px solid #eee;
+    }
+}
+
+.nav-pills {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+    /*border: 1px solid #ccc;*/
+}
+
+    /* 菜单下箭头 */
+    .nav-pills li.has-sub > a::after {
+        content: '';
+        position: absolute;
+        display: block;
+        border: 5px solid transparent;
+        border-top-color: #888;
+        right: 15px;
+        top: 17px;
+        transition: all .25s ease;
+        transform-origin: 0 25%;
+    }
+    /* 菜单上箭头 */
+    .nav-pills li.open.has-sub > a::after {
+        transform: rotateX(180deg);
+        border-top-color: #777;
+    }
+
+    .nav-pills > li {
+        margin-top: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .nav-pills a {
+        color: #777;
+        font-size: 13px;
+        font-family: Roboto, Helvetica, sans-serif;
+        padding-right: 20px;
+        padding-left: 30px;
+    }
+
+    .nav-pills > li > a,
+    .nav-pills > li > a:hover,
+    .nav-pills > li > a:focus {
+        color: #777;
+        font-size: 13px;
+        background-color: #eee;
+        border-radius: unset;
+    }
+
+    .nav-pills > li.active > a,
+    .nav-pills > li.active > a:hover,
+    .nav-pills > li.active > a:focus {
+        color: #777;
+        font-size: 13px;
+        background-color: #ddd;
+        border-left: 3px solid #dd4b39;
+    }
+
+    .nav-pills > li > .nav-sidebar > li a {
+        color: #777;
+        font-size: 13px;
+        background-color: #fff;
+        padding-right: 20px;
+        padding-left: 30px;
+    }
+
+        .nav-pills > li > .nav-sidebar > li a:hover {
+            color: #777;
+            font-size: 13px;
+            background-color: #f2f2f2;
+            padding-right: 20px;
+            padding-left: 30px;
+        }
+
+    .nav-pills > li > .nav-sidebar > li.active a {
+        color: #777;
+        font-size: 13px;
+        background-color: #f2f2f2;
+        padding-right: 20px;
+        padding-left: 30px;
+        border-left: 3px solid #dd4b39;
+    }
+
+    .nav-pills > li > .nav-sidebar > li > .nav-sidebar > li > a {
+        color: #777;
+        font-size: 13px;
+        background-color: #fff;
+        padding-right: 20px;
+        padding-left: 40px;
+    }
+
+    .nav-pills > li > .nav-sidebar > li > .nav-sidebar > li.active > a {
+        color: #777;
+        font-size: 13px;
+        background-color: #f2f2f2;
+        padding-right: 20px;
+        padding-left: 40px;
+        border-left: 3px solid #dd4b39;
+    }
+
+/* 右侧 */
+.main {
+    padding: 20px;
+}
+
+.iframeMain {
+    padding: 10px 10px 20px 10px;
+}
+
+@media(min-width:768px) {
+    .main {
+        /*background-color: #ecf0f5;
+        position: absolute;
+        bottom: 0;
+        top: 50px;
+        right: 0;
+        left: 0;*/
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .iframeMain {
+        padding: 10px 10px 20px 10px;
+    }
+}

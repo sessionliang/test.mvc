@@ -1,0 +1,4 @@
+D:\JL\Code\Test\MVC\mvc\DM.Model\bin\Debug\DM.Model.dll
+D:\JL\Code\Test\MVC\mvc\DM.Model\bin\Debug\DM.Model.pdb
+D:\JL\Code\Test\MVC\mvc\DM.Model\obj\Debug\DM.Model.dll
+D:\JL\Code\Test\MVC\mvc\DM.Model\obj\Debug\DM.Model.pdb

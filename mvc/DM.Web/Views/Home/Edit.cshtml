@@ -1,0 +1,57 @@
+﻿@model HRCode.Model.Test
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutEdit.cshtml";
+}
+
+<div id="AjaxContainer">
+    <div class="form-group form-inline">
+        <label>ID</label>
+        <p class="form-control-static">@Model.Id</p>
+    </div>
+    @using (Ajax.BeginForm("Edit", new AjaxOptions() { HttpMethod = "Post", OnSuccess = "ProcessSuccess", OnFailure = "ProcessFailure", OnBegin = "ProcessBegin", Confirm = "确定要提交吗？", UpdateTargetId = "AjaxContainer" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.Id)
+        <div class="form-group">
+            <label>
+                @Html.DisplayNameFor(x => x.Name)
+            </label>
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Name, null, new { style = "color:red;" })
+        </div>
+        <div class="form-group">
+            <label>
+                @Html.DisplayNameFor(x => x.Price)
+            </label>
+            @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Price, null, new { style = "color:red;" })
+        </div>
+
+        <div class="form-inline text-right">
+            <button type="submit" class="btn btn-primary">保存</button>
+            <button type="button" class="btn btn-default" onClick="parent.layer.close(parent.layer.getFrameIndex(window.name));">取消</button>
+        </div>
+    }
+
+</div>
+<script>
+    function ProcessSuccess(retval) {
+        parent.layer.msg("添加成功", {
+            icon: 6,
+            time: 1000
+        });
+        parent.layer.close(parent.layer.getFrameIndex(window.name));
+    }
+    function ProcessFailure(retval) {
+        parent.layer.msg("添加失败", {
+            icon: 5,
+            time: 1000
+        });
+        parent.layer.close(parent.layer.getFrameIndex(window.name));
+    }
+    function ProcessBegin() {
+        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+        parent.layer.iframeAuto(index);
+    }
+</script>
